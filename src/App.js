@@ -52,13 +52,15 @@ class App extends React.Component {
   }
 
 
+
   render(){
+    let url = encodeURI(`https://twitter.com/intent/tweet?text="${this.state.citaActual}"-${this.state.authorActual}&hashtags=randomquotemachine`)
     return (    
       <div className="App" id="quote-box">
         <Text value={this.state.citaActual} id="text"/>
         <Author value={this.state.authorActual} id="author"/>
         <div className="button">
-        <Tweet  id="tweet-quote" href="twitter.com/intent/tweet"/>
+        <Tweet  id="tweet-quote" href={url}  target="_blank"/>
         <Button id="new-quote" value = "New quote" onClick = {this.handleClick}/>
         </div>        
       </div>
